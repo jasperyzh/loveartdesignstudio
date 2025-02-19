@@ -58,3 +58,10 @@ All commands are run from the root of the project, from a terminal:
 2. Update content in `index.astro` with actual business information
 3. Add more FAQ items as needed
 4. Consider adding a contact form and integration with a backend service
+
+## Deployment Log
+
+- **Configured Astro for GitHub Pages**: Updated `astro.config.mjs` to set the site URL and base path.
+- **Created GitHub Actions Workflow**: Added `.github/workflows/deploy.yml` to automate deployment.
+- **Initialized Git Repository**: Set up a new git repository and pushed the initial commit.
+- **Updated GitHub Actions**: Modified the workflow to use the latest versions of actions for building and deploying the site.
