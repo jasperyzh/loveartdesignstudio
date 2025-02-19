@@ -2,14 +2,14 @@
 
 import { Image } from 'astro:assets';
 import iconWhatsapp from '../assets/icon-whatsapp.svg';
-import logo from '../assets/logo.svg';
+import logo from '../assets/logo-loveartdesign.png';
 
 ---
 
 <nav class="navbar navbar-expand-lg bg-transparent">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <Image src={logo} alt="Love Art Design" height="40" />
+      <Image src={logo} alt="Love Art Design" height="120" style="mix-blend-mode: multiply" />
     </a>
     <button
       class="navbar-toggler"
@@ -25,10 +25,13 @@ import logo from '../assets/logo.svg';
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#our-portfolio">Our Portfolio</a>
+          <a class="nav-link" href="#portfolio">Our Portfolio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/services">Our Services</a>
+          <a class="nav-link" href="#services">Our Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#faqs">FAQs</a>
         </li>
         <li class="nav-item">
           <a

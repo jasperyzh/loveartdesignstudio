@@ -1,45 +1,98 @@
 ---
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { Image } from 'astro:assets';
-import logo from '../assets/logo.svg';
+import { Image } from "astro:assets";
+import logo from "../assets/logo-loveartdesign.png";
+import decorLeafTop from "../assets/decor-leaf1.png";
+import decorLeaf from "../assets/decor-leaf2.png";
 const currentYear = new Date().getFullYear();
 ---
 
 <!-- footer -->
-<div class="container">
-  <footer>
+<footer>
+  <div class="container" style="max-width: 1200px !important; margin: auto">
     <div class="row">
-
       <div class="col-md-6 mb-3">
-        
-        <Image src={logo} alt="" />
-        <p class="col-md-8">We are Creative Event Decorators ready to make your events truly
-            memorable</p>
+        <Image
+          src={logo}
+          alt=""
+          style="mix-blend-mode: multiply"
+          class="d-block d-md-inline-block mx-auto"
+        />
+        <p class="col-md-8 text-center text-md-start">
+          At LoveArt Design, we specialize in creating unforgettable
+          experiences, transforming your visions into stunning realities for
+          every occasion.
+        </p>
       </div>
 
-      <div class="col-md-5 offset-md-1 d-flex justify-content-center align-items-center gap-4">
-
-        <p class="fs-3">Follow Us: </p>
+      <div
+        class="col-md-5 offset-md-1 d-flex justify-content-center align-items-center gap-4"
+      >
+        <p class="fs-3">Follow Us:</p>
         <ul class="list-unstyled d-flex fs-1 gap-3">
-            <li class="ms-3">
-              <a class="link-body-emphasis" href="https://www.instagram.com/loveart_design_wedding" target="_blank">
-                <i class="bi bi-instagram"></i>
-              </a>
-            </li>
-            <li class="ms-3">
-              <a class="link-body-emphasis" href="https://www.facebook.com/LoveArtDesignEnterprise" target="_blank">
-                <i class="bi bi-facebook"></i>
-              </a>
-            </li>
-          </ul>
+          <li class="ms-3">
+            <a
+              class="link-body-emphasis"
+              href="https://www.instagram.com/loveart_design_wedding"
+              target="_blank"
+            >
+              <i class="bi bi-instagram"></i>
+            </a>
+          </li>
+          <li class="ms-3">
+            <a
+              class="link-body-emphasis"
+              href="https://www.facebook.com/LoveArtDesignEnterprise"
+              target="_blank"
+            >
+              <i class="bi bi-facebook"></i>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
 
     <div
-      class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top"
+      class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top text-center text-md-start"
     >
-      <p>&copy; LoveArt Design Enterprise, {currentYear}</p>
-      
+      <p class="copy">&copy; LoveArt Design Enterprise {currentYear}</p>
     </div>
-  </footer>
-</div>
+  </div>
+  <Image src={decorLeaf} alt="Decoration Leaf" class="decor-leaf" />
+  <Image src={decorLeafTop} alt="Decoration Leaf" class="decor-leaf-top" />
+</footer>
+
+<style>
+  p {
+    font-family: "Roboto", serif;
+  }
+  p.fs-3 {
+    font-family: "Crimson Text", serif;
+  }
+  .border-top {
+    border-color: #f0bdac !important;
+  }
+
+  footer {
+    position: relative;
+  }
+  .decor-leaf {
+    position: absolute;
+    bottom: -3rem;
+    left: 0;
+    /* width: 100px; Adjust size as needed */
+    display: none;
+    @media (min-width: 1500px) {
+      display: block;
+    }
+  }
+
+  .decor-leaf-top {
+    position: absolute;
+    top: -38%;
+    right: 0;
+  }
+  p.copy {
+    font-size: 0.915rem;
+  }
+</style>
