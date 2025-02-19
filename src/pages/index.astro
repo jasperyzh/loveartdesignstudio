@@ -6,7 +6,10 @@ import Gallery from "../components/Gallery.astro";
 import JumboCta from "../components/JumboCta.astro";
 import AccordionFaq from "../components/AccordionFaq.astro";
 import Footer from "../components/Footer.astro";
-import { Astro } from 'astro';
+import { Image } from 'astro:assets';
+import iconWhatsapp from '../assets/icon-whatsapp.svg';
+import heroImage from '../assets/hero-image.png';
+import heroForegroundDecor from '../assets/hero-foreground-decor.png';
 ---
 
 <Layout title="Home">
@@ -31,21 +34,17 @@ import { Astro } from 'astro';
               target="_blank"
               class="btn btn-primary btn-lg"
             >
-              Contact Us <img src="/icon-whatsapp.svg" width="28" />
+              Contact Us <img src={iconWhatsapp.src} width="28" />
             </a>
           </div>
           <div class="col-lg-6 position-relative d-flex justify-content-center">
             <figure>
               <img
-                src={Astro.resolve("/hero-image.png")}
+                src={heroImage.src}
                 alt="Event Decoration"
                 class="img-fluid rounded-circle"
               />
-              <img
-                src="/hero-foreground-decor.png"
-                alt="Foreground Decoration"
-                class="position-absolute bottom-0 end-0"
-              />
+              <Image src={heroForegroundDecor} alt="Foreground Decoration" class="position-absolute bottom-0 end-0" />
             </figure>
           </div>
         </div>
@@ -188,7 +187,7 @@ import { Astro } from 'astro';
                   class="btn btn-primary btn-lg"
                   href="https://wa.me/0133912105?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
                   target="_blank"
-                  >Whatsapp Us <img src="/icon-whatsapp.svg" width="28" /></a
+                  >Whatsapp Us <img src={iconWhatsapp.src} width="28" /></a
                 >
               </div>
             </div>
@@ -209,7 +208,7 @@ import { Astro } from 'astro';
           <div
             class="col-md-6 d-flex justify-content-center align-items-center"
           >
-            <img src={Astro.resolve("/hero-image.png")} />
+            <img src={heroImage.src} />
           </div>
           <div class="col-md-6">
             <h2 class="section-title text-center mb-5">

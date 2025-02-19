@@ -1,18 +1,23 @@
 ---
 import "photoswipe/dist/photoswipe.css";
 import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
+import { Image } from 'astro:assets';
+import portfolio1 from "../assets/portfolio-1.jpg";
+import portfolio2 from "../assets/portfolio-2.jpg";
+import portfolio3 from "../assets/portfolio-3.jpg";
+import portfolio4 from "../assets/portfolio-4.jpg";
 ---
 
 <div id="gallery" class="row g-4">
   <div
     class="col-12 pswp-gallery__item"
-    data-pswp-src="/portfolio-1.jpg"
+    data-pswp-src={portfolio1}
     data-pswp-width="1200"
     data-pswp-height="800"
   >
     <div class="portfolio-iteam">
       <a
-        href="/portfolio-1.jpg"
+        href={portfolio1}
         data-pswp-width="1669"
         data-pswp-height="2500"
         target="_blank"
@@ -41,18 +46,18 @@ import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css"
 
   <div
     class="col-md-3 pswp-gallery__item"
-    data-pswp-src="/portfolio-1.jpg"
+    data-pswp-src={portfolio1}
     data-pswp-width="1200"
     data-pswp-height="800"
   >
     <div class="portfolio-item">
       <a
-        href="/portfolio-1.jpg"
+        href={portfolio1}
         data-pswp-width="1669"
         data-pswp-height="2500"
         target="_blank"
       >
-        <img src="/portfolio-1.jpg" alt="Weddings" class="img-fluid" />
+        <Image src={portfolio1} alt="Weddings" class="img-fluid" />
         <h4>Weddings</h4>
       </a>
     </div>
@@ -65,6 +70,61 @@ import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css"
         data-pswp-width="2500"
         data-pswp-height="1668"
         target="_blank"></a>
+    </div>
+  </div>
+
+  <div
+    class="col-md-3 pswp-gallery__item"
+    data-pswp-src={portfolio2}
+    data-pswp-width="1200"
+    data-pswp-height="800"
+  >
+    <div class="portfolio-item">
+      <a
+        href={portfolio2}
+        data-pswp-width="1669"
+        data-pswp-height="2500"
+        target="_blank"
+      >
+        <Image src={portfolio2} alt="Corporate Events" class="img-fluid" />
+      </a>
+      <h4>Corporate Events</h4>
+    </div>
+  </div>
+  <div
+    class="col-md-3 pswp-gallery__item"
+    data-pswp-src={portfolio3}
+    data-pswp-width="1200"
+    data-pswp-height="800"
+  >
+    <div class="portfolio-item">
+      <a
+        href={portfolio3}
+        data-pswp-width="1669"
+        data-pswp-height="2500"
+        target="_blank"
+      >
+        <Image src={portfolio3} alt="Birthdays" class="img-fluid" />
+      </a>
+      <h4>Birthdays</h4>
+    </div>
+  </div>
+  <div
+    class="col-md-3 pswp-gallery__item"
+    data-pswp-src={portfolio4}
+    data-pswp-width="1200"
+    data-pswp-height="800"
+  >
+    <div class="portfolio-item">
+      <a
+        href={portfolio4}
+        data-pswp-width="1669"
+        data-pswp-height="2500"
+        target="_blank"
+      >
+        <Image src={portfolio4} alt="Special Events" class="img-fluid" />
+      </a>
+      <h4>Special Events</h4>
     </div>
   </div>
 
@@ -124,62 +184,6 @@ import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css"
         margin-top: 6rem;
     }
   </style>
-
-  <div
-    class="col-md-3 pswp-gallery__item"
-    data-pswp-src="/portfolio-2.jpg"
-    data-pswp-width="1200"
-    data-pswp-height="800"
-  >
-    <div class="portfolio-item">
-      <a
-        href="/portfolio-2.jpg"
-        data-pswp-width="1669"
-        data-pswp-height="2500"
-        target="_blank"
-      >
-        <img src="/portfolio-2.jpg" alt="Corporate Events" class="img-fluid" />
-      </a>
-      <h4>Corporate Events</h4>
-    </div>
-  </div>
-  <div
-    class="col-md-3 pswp-gallery__item"
-    data-pswp-src="/portfolio-3.jpg"
-    data-pswp-width="1200"
-    data-pswp-height="800"
-  >
-    <div class="portfolio-item">
-      <a
-        href="/portfolio-3.jpg"
-        data-pswp-width="1669"
-        data-pswp-height="2500"
-        target="_blank"
-      >
-        <img src="/portfolio-3.jpg" alt="Birthdays" class="img-fluid" />
-      </a>
-      <h4>Birthdays</h4>
-    </div>
-  </div>
-  <div
-    class="col-md-3 pswp-gallery__item"
-    data-pswp-src="/portfolio-4.jpg"
-    data-pswp-width="1200"
-    data-pswp-height="800"
-  >
-    <div class="portfolio-item">
-      <a
-        href="/portfolio-4.jpg"
-        data-pswp-width="1669"
-        data-pswp-height="2500"
-        target="_blank"
-      >
-        <img src="/portfolio-4.jpg" alt="Special Events" class="img-fluid" />
-      </a>
-      <h4>Special Events</h4>
-    </div>
-  </div>
-</div>
 
 <script is:inline type="module">
   import PhotoSwipeLightbox from "./node_modules/photoswipe/dist/photoswipe-lightbox.esm.js";

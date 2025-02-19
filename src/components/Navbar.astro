@@ -1,11 +1,15 @@
 ---
 
+import { Image } from 'astro:assets';
+import iconWhatsapp from '../assets/icon-whatsapp.svg';
+import logo from '../assets/logo.svg';
+
 ---
 
 <nav class="navbar navbar-expand-lg bg-transparent">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <img src="/logo.svg" alt="Love Art Design" height="40" />
+      <Image src={logo} alt="Love Art Design" height="40" />
     </a>
     <button
       class="navbar-toggler"
@@ -32,7 +36,7 @@
             href="https://wa.me/0133912105?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
             target="_blank"
           >
-            Talk to Us <img src="/icon-whatsapp.svg" width="28" />
+            Talk to Us <Image src={iconWhatsapp} width="28" alt="call us on whatsapp" />
           </a>
         </li>
       </ul>
