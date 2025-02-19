@@ -1,0 +1,43 @@
+---
+import "bootstrap-icons/font/bootstrap-icons.css";
+const currentYear = new Date().getFullYear();
+---
+
+<!-- footer -->
+<div class="container">
+  <footer>
+    <div class="row">
+
+      <div class="col-md-6 mb-3">
+        
+        <img src="logo.svg" alt="">
+        <p class="col-md-8">We are Creative Event Decorators ready to make your events truly
+            memorable</p>
+      </div>
+
+      <div class="col-md-5 offset-md-1 d-flex justify-content-center align-items-center gap-4">
+
+        <p class="fs-3">Follow Us: </p>
+        <ul class="list-unstyled d-flex fs-1 gap-3">
+            <li class="ms-3">
+              <a class="link-body-emphasis" href="https://www.instagram.com/loveart_design_wedding" target="_blank">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </li>
+            <li class="ms-3">
+              <a class="link-body-emphasis" href="https://www.facebook.com/LoveArtDesignEnterprise" target="_blank">
+                <i class="bi bi-facebook"></i>
+              </a>
+            </li>
+          </ul>
+      </div>
+    </div>
+
+    <div
+      class="d-flex flex-column flex-sm-row justify-content-center py-4 my-4 border-top"
+    >
+      <p>&copy; LoveArt Design Enterprise, {currentYear}</p>
+      
+    </div>
+  </footer>
+</div>

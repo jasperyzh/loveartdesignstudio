@@ -1,0 +1,81 @@
+---
+const accordionItems = [
+  { 
+    title: 'How do you charge for Services?', 
+    description: 'Our pricing varies based on the scope of services required. We offer fixed packages, hourly consultation rates, and custom pricing for unique requests. Contact us for a detailed quote based on your needs.' 
+  },
+  { 
+    title: 'What is included in Wedding Planning Services?', 
+    description: 'Our wedding planning services include venue selection, vendor coordination, budget management, timeline creation, design consultation, and day-of coordination to ensure your special day runs smoothly.' 
+  },
+  { 
+    title: 'How much time do you need to plan?', 
+    description: 'The time required for planning depends on the complexity of the event. Ideally, we recommend starting at least 6-12 months in advance for full planning services. However, we also offer shorter turnaround options for last-minute planning.' 
+  },
+  { 
+    title: 'Do you take custom jobs?', 
+    description: 'Yes! We love bringing unique visions to life. Whether you have a specific theme, cultural tradition, or custom request, we can tailor our services to fit your needs.' 
+  },
+  { 
+    title: 'How much experience do you have?', 
+    description: 'With several years of experience in the wedding and event planning industry, we have successfully organized numerous weddings and events, ensuring seamless execution and unforgettable moments for our clients.' 
+  }
+];
+
+---
+
+<div class="accordion" id="accordionExample">
+  {accordionItems.map((item, index) => (
+    <div class="accordion-item">
+      <h2 class="accordion-header" id={`heading${index}`}>  
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${index}`} aria-expanded={index === 0 ? 'true' : 'false'} aria-controls={`collapse${index}`}>  
+          {item.title}
+        </button>
+      </h2>
+      <div id={`collapse${index}`} class={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`} aria-labelledby={`heading${index}`} data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          {item.description}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+    .accordion {
+        background-color: transparent;
+    }
+    .accordion-item {
+        background: transparent;
+        border: none;
+        margin-bottom: 1rem;
+    }
+    .accordion-button {
+        background-color: white !important;
+        border-radius: 1rem !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        padding: 1.25rem;
+        /* margin-bottom: 0.5rem; */
+        transition: all .3s ease .2s;
+    }
+    .accordion-button:not(.collapsed) {
+        color: inherit;
+        background-color: white !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        transition: all .1s ease;
+    }
+    .accordion-button::after {
+        background-size: 1.25rem;
+    }
+    .accordion-body {
+        background-color: white;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        padding: 1.25rem;
+    }
+    .accordion-button:focus {
+        box-shadow: none;
+        border-color: rgba(0,0,0,.125);
+    }
+</style>
