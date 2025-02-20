@@ -18,7 +18,7 @@ import heroForegroundDecor from "../assets/hero-foreground-decor.png";
   <main>
     <!-- Hero Section -->
     <section class="hero-section">
-      <div class="container py-5  text-center text-lg-start">
+      <div class="container pb-0 pb-md-5 py-5  text-center text-lg-start">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-4 mb-lg-0">
             <h1 class="display-3 mb-4">
@@ -38,8 +38,8 @@ import heroForegroundDecor from "../assets/hero-foreground-decor.png";
               WhatsApp Us <img src={iconWhatsapp.src} width="28" />
             </a>
           </div>
-          <div class="col-lg-6 position-relative d-flex justify-content-center">
-            <figure style="overflow: hidden">
+          <div class="col-lg-6 position-relative d-flex justify-content-center px-0 px-md-3">
+            <figure class="my-4" style="overflow: hidden">
               <img
                 src={heroImage.src}
                 alt="Event Decoration"
@@ -51,7 +51,8 @@ import heroForegroundDecor from "../assets/hero-foreground-decor.png";
                   aspect-ratio: 1/1;
                   object-fit: cover
                   width: 100%;
-                  border-radius: 1rem;
+                  height: 100%;
+                  border-radius: 0;
                 }
               </style>
               <Image
