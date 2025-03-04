@@ -1,6 +1,6 @@
 ---
 // Import required CSS
-import "photoswipe/dist/photoswipe.css";
+import "photoswipe/style.css";
 import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
 import { Image } from "astro:assets";
 
@@ -174,7 +174,7 @@ const galleryCategories = [
   const loadPhotoswipe = async () => {
     try {
       const PhotoSwipeLightbox = (
-        await import("photoswipe/dist/photoswipe-lightbox.esm.js")
+        await import("photoswipe/lightbox")
       ).default;
 
       const PhotoSwipeDynamicCaption = (
@@ -184,7 +184,7 @@ const galleryCategories = [
       const lightbox = new PhotoSwipeLightbox({
         gallery: "#gallery",
         children: ".pswp-gallery__item",
-        pswpModule: () => import("photoswipe/dist/photoswipe.esm.js"),
+        pswpModule: () => import("photoswipe")
       });
 
       const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
