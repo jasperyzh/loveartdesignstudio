@@ -17,6 +17,7 @@
 - **Images**: Optimize images before adding to repository
 - **Commenting**: Document complex logic or non-obvious design decisions
 - **Architecture**: Follow Astro's standard project structure (src/pages, src/layouts, src/components)
+- **Fetch**: Use fetch API exclusively for data fetching
 
 ## Libraries
 - Bootstrap 5.3.3 - CSS framework

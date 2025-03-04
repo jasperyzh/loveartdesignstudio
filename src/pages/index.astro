@@ -2,28 +2,72 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Gallery from "../components/Gallery.astro";
-
-import JumboCta from "../components/JumboCta.astro";
 import AccordionFaq from "../components/AccordionFaq.astro";
 import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
 import iconWhatsapp from "../assets/icon-whatsapp.svg";
 import heroImage from "../assets/hero-image.jpg";
-import faqImage from "../assets/faq-image.png";
 import heroForegroundDecor from "../assets/hero-foreground-decor.png";
+
+import overlay1 from "../assets/portfolio/wedding02.jpg";
+import overlay2 from "../assets/portfolio/special09.jpg";
+
+const services = [
+  {
+    title: "Wedding & ROM Decorations",
+    description:
+      "Elegant and tailored decorations to bring your vision to life for weddings and ROM ceremonies.",
+  },
+  {
+    title: "House Party and Birthday Decorations",
+    description:
+      "Thoughtfully designed decorations to match any theme and make your party memorable.",
+  },
+  {
+    title: "Gown Packages",
+    description:
+      "A curated selection of gowns to suit your style and make your special day even more remarkable.",
+  },
+  {
+    title: "Professional Make up",
+    description:
+      "Expert makeup services to enhance your natural beauty for weddings, events, or photoshoots.",
+  },
+  {
+    title: "Video & Photography Packages",
+    description:
+      "Professional video and photography services to document your special moments seamlessly.",
+  },
+  {
+    title: "Live Band",
+    description:
+      "Versatile live music to create the perfect atmosphere for any celebration or gathering.",
+  },
+  {
+    title: "Printable stuffs & designs",
+    description:
+      "Customizable designs and print materials to add a unique and polished touch to your event.",
+  },
+  {
+    title: "Floral Arrangements & Bouquets",
+    description:
+      "Custom-designed floral arrangements and bouquets to add a touch of elegance and freshness to your wedding, ROM, or special event.",
+  },
+];
+
+const whatsapp_href = import.meta.env.WHATSAPP_URL;
 ---
 
-<Layout title="Home">
-  <Navbar />
+<Layout title="Homepage">
+  <Navbar whatsapp_href={whatsapp_href} />
   <main>
     <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container pb-0 pb-md-5 py-5  text-center text-lg-start">
+    <section class="hero-section" style="overflow: hidden">
+      <div class="container pb-0 pb-md-5 py-5 text-center text-lg-start">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-4 mb-lg-0">
-            <h1 class="display-3 mb-4">
-              Celebrating Life's
-              <br />Special Moments in Style
+            <h1 class="display-4 mb-4">
+              Celebrating Life's<br />Special Moments in Style
             </h1>
             <p class="lead mb-4">
               We are Creative Event Decorators, specializing in decor for
@@ -31,35 +75,28 @@ import heroForegroundDecor from "../assets/hero-foreground-decor.png";
               memories!
             </p>
             <a
-              href="https://wa.me/0133912105?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+              href={whatsapp_href}
               target="_blank"
               class="btn btn-primary btn-lg"
             >
-              WhatsApp Us <img src={iconWhatsapp.src} width="28" />
+              WhatsApp Us <i class="bi bi-whatsapp mx-1"></i>
             </a>
           </div>
-          <div class="col-lg-6 position-relative d-flex justify-content-center px-0 px-md-3">
-            <figure class="my-4" style="overflow: hidden">
+          <div
+            class="col-lg-6 position-relative d-flex justify-content-center px-0 px-md-3"
+          >
+            <figure class="my-4 hero-image-container">
               <img
                 src={heroImage.src}
                 alt="Event Decoration"
-                class="img-fluid heroimage__rounded"
+                class="img-fluid heroimage__rounded rounded-4"
                 width="550"
               />
-              <style>
-                .heroimage__rounded {
-                  aspect-ratio: 1/1;
-                  object-fit: cover
-                  width: 100%;
-                  height: 100%;
-                  border-radius: 0;
-                }
-              </style>
               <Image
                 src={heroForegroundDecor}
                 alt="Foreground Decoration"
-                class="position-absolute d-none d-md-block"
-                style="bottom: -3rem; right: -1rem"
+                class="position-absolute d-none d-md-block hero-foreground"
+                style="translate: 30%;"
               />
             </figure>
           </div>
@@ -70,104 +107,33 @@ import heroForegroundDecor from "../assets/hero-foreground-decor.png";
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio-section bg--gradient-flip">
       <div class="curved" style="background: var(--offwhite)"></div>
-
       <div class="container py-5 text-center">
         <h2 class="display-4">Our Portfolio</h2>
-
         <p class="lead mb-4 col-md-6 mx-auto">
           Explore our diverse range of creative projects that showcase our
           expertise in event decoration. From weddings to corporate events, we
           bring visions to life with elegance and style.
         </p>
-
         <Gallery />
       </div>
-
       <div class="curved curved--flip" style="background: var(--beige);"></div>
     </section>
 
     <!-- Services Section -->
-    <section
-      id="services"
-      class="services-section"
-      style="background: var(--beige);"
-    >
+    <section id="services" class="bg--beige">
       <div class="container py-5">
         <h2 class="display-4 text-center mb-4">Our Services</h2>
         <div class="row g-4">
-          <div class="col-md-4">
-            <div class="service-card p-4 bg-offwhite rounded shadow-sm">
-              <h3>Wedding & ROM Decorations</h3>
-              <p>
-                Elegant and tailored decorations to bring your vision to life
-                for weddings and ROM ceremonies.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card p-4 bg-offwhite rounded shadow-sm">
-              <h3>House Party and Birthday Decorations</h3>
-              <p>
-                Thoughtfully designed decorations to match any theme and make
-                your party memorable.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card p-4 bg-offwhite rounded shadow-sm">
-              <h3>Gown Packages</h3>
-              <p>
-                A curated selection of gowns to suit your style and make your
-                special day even more remarkable.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card p-4 bg-offwhite rounded shadow-sm">
-              <h3>Professional Make up</h3>
-              <p>
-                Expert makeup services to enhance your natural beauty for
-                weddings, events, or photoshoots.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card p-4 bg-offwhite rounded shadow-sm">
-              <h3>Video & Photography Packages</h3>
-              <p>
-                Professional video and photography services to document your
-                special moments seamlessly.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card p-4 bg-offwhite rounded shadow-sm">
-              <h3>Live Band</h3>
-              <p>
-                Versatile live music to create the perfect atmosphere for any
-                celebration or gathering.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card p-4 bg-offwhite rounded shadow-sm">
-              <h3>Printable stuffs & designs</h3>
-              <p>
-                Customizable designs and print materials to add a unique and
-                polished touch to your event.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-card p-4 bg-offwhite rounded shadow-sm">
-              <h3>Floral Arrangements & Bouquets</h3>
-              <p>
-                Custom-designed floral arrangements and bouquets to add a touch
-                of elegance and freshness to your wedding, ROM, or special
-                event.
-              </p>
-            </div>
-          </div>
+          {
+            services.map((service) => (
+              <div class="col-md-4">
+                <div class="service-card p-4 bg-offwhite rounded shadow-sm">
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -176,23 +142,19 @@ import heroForegroundDecor from "../assets/hero-foreground-decor.png";
 
     <!-- FAQ Section -->
     <section class="faq-section bg--gradient">
-      <!-- <JumboCta /> -->
-      <div class="jumbo__cta container py-4">
-        <div
-          class="px-5 py-4 mb-4 rounded-5 shadow"
-          style="background-color: var(--beige-light)"
-        >
+      <!-- CTA Banner -->
+      <div class="jumbo-cta container py-4">
+        <div class="px-5 py-4 mb-4 rounded-5 shadow bg--beigelight">
           <div class="container-fluid py-2">
             <div class="row">
               <div class="col-md-8">
-                <h1 class="display-5 mb-4" style="line-height: 1">
-                  Get in touch<br />
-                  to create something together!
-                </h1>
-                <p class="fs-5 col-md-8">
+                <h2 class="display-5 mb-4">
+                  Get in touch<br />to create something together!
+                </h2>
+                <p class="lead col-md-8">
                   We are Creative Event Decorators, specializing in decor for
                   weddings, birthdays, and corporate events that bring your
-                  vision to life with elegance and style. Let’s make your
+                  vision to life with elegance and style. Let's make your
                   special moments unforgettable!
                 </p>
               </div>
@@ -201,42 +163,50 @@ import heroForegroundDecor from "../assets/hero-foreground-decor.png";
               >
                 <a
                   class="btn btn-primary btn-lg"
-                  href="https://wa.me/0133912105?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+                  href={whatsapp_href}
                   target="_blank"
-                  >WhatsApp Us <img src={iconWhatsapp.src} width="28" /></a
                 >
+                  WhatsApp Us <img
+                    src={iconWhatsapp.src}
+                    width="28"
+                    alt="WhatsApp Icon"
+                  />
+                </a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <style>
-        .jumbo__cta {
-          margin-top: -8rem;
-          z-index: 50;
-          position: relative;
-        }
-      </style>
-
+      <!-- FAQ Content -->
       <div id="faqs" class="container py-5">
         <div class="row">
           <div
             class="col-md-6 d-flex justify-content-center align-items-center"
           >
-            <img src={faqImage.src} class="img-fluid" />
+            <div class="image-composition">
+              <div class="image-main">
+                <img
+                  src={overlay2.src}
+                  class="img-fluid"
+                  alt="FAQ Illustration"
+                />
+              </div>
+              <div class="image-overlay">
+                <img src={overlay1.src} class="img-fluid" alt="Overlay Image" />
+              </div>
+            </div>
           </div>
           <div class="col-md-6">
             <h2 class="section-title display-5 mb-3">
               Frequently Asked Questions
             </h2>
-            <p class="lead col-md-11">
+            <p class="lead col-md-11 mb-4">
               We are Creative Event Decorators, specializing in decor for
               weddings, birthdays and corporate events that bring your vision to
-              life with elegance and style. Let’s make your special moments
+              life with elegance and style. Let's make your special moments
               unforgettable!
             </p>
-
             <AccordionFaq />
           </div>
         </div>
@@ -248,81 +218,3 @@ import heroForegroundDecor from "../assets/hero-foreground-decor.png";
 
   <Footer />
 </Layout>
-
-<style>
-  :root {
-    --beige: #fbe8e1;
-    --beige-light: #fbf1ee;
-    --offwhite: #fbf7f6;
-  }
-  body {
-    background-color: var(--offwhite);
-  }
-  .curved {
-    position: relative;
-    padding-block: 2rem;
-    height: 80%;
-    background: var(--bg-color);
-    border-bottom-left-radius: 50% 60%;
-    border-bottom-right-radius: 50% 60%;
-  }
-  .curved--flip {
-    border-bottom-left-radius: unset;
-    border-bottom-right-radius: unset;
-    border-top-left-radius: 50% 60%;
-    border-top-right-radius: 50% 60%;
-  }
-  .bg--gradient {
-    background: linear-gradient(299.63deg, var(--beige) 25.72%, #fbf7f6 100%);
-  }
-  .bg--gradient-flip {
-    background: linear-gradient(77.77deg, #fbf7f6 54.8%, #fbe7e0 97.1%);
-  }
-  .bg-offwhite {
-    background-color: var(--offwhite);
-  }
-  .hero-section {
-    background-image: url("/bg-texture.svg");
-    background-repeat: no-repeat;
-    background-position:
-      left top,
-      right bottom;
-  }
-
-  /* .btn-primary:hover {
-    background-color: darken(var(--primary-color), 10%);
-    border-color: darken(var(--primary-color), 10%);
-  } */
-
-  .section-title {
-    color: var(--text-color);
-    margin-bottom: 2rem;
-  }
-
-  .portfolio-item img {
-    transition: transform 0.3s ease;
-  }
-
-  .portfolio-item:hover img {
-    transform: scale(1.05);
-  }
-
-  .service-card {
-    transition: transform 0.3s ease;
-    height: 100%;
-
-    h3 {
-      font-size: 2rem;
-    }
-    p {
-      font-size: 1.05rem;
-      font-family: "Roboto", sans-serif;
-      color: #555;
-    }
-  }
-
-  .service-card:hover {
-    transform: translateY(-5px);
-  }
-
-</style>

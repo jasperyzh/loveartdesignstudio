@@ -1,7 +1,10 @@
 ---
+// Import required CSS
 import "photoswipe/dist/photoswipe.css";
 import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
+
+// Import image assets
 import wedding01 from "../assets/portfolio/wedding01.jpg";
 import wedding02 from "../assets/portfolio/wedding02.jpg";
 import wedding03 from "../assets/portfolio/wedding03.jpg";
@@ -14,298 +17,186 @@ import birthday03 from "../assets/portfolio/birthday03.jpg";
 import special01 from "../assets/portfolio/special01.jpg";
 import special02 from "../assets/portfolio/special02.jpg";
 import special03 from "../assets/portfolio/special03.jpg";
-import special04 from "../assets/portfolio/special04.jpg";
-import special05 from "../assets/portfolio/special05.jpg";
-import special06 from "../assets/portfolio/special06.jpg";
 
-import {Debug} from "astro:components";
-
-const weddings = [
+// Define gallery categories with their images and descriptions
+const galleryCategories = [
   {
-    src: wedding01,
-    alt: "wedding 01",
+    id: "weddings",
+    title: "Weddings",
+    mainImage: wedding01,
+    additionalImages: [wedding02, wedding03],
+    description:
+      "Weddings & ROMs &mdash;Transforming your dream wedding into a breathtaking reality, our decoration services blend elegance and creativity to create unforgettable moments. Let us bring your vision to life with stunning floral arrangements, exquisite table settings, and enchanting ambiance that reflect your unique love story.",
   },
   {
-    src: wedding02,
-    alt: "wedding 02",
+    id: "corporate",
+    title: "Corporate Events",
+    mainImage: event01,
+    additionalImages: [event02, event03],
+    description:
+      "Corporate Events &mdash; Elevate your corporate events with our bespoke decoration services. We specialize in creating professional and sophisticated atmospheres that reflect your brand's identity. From elegant table settings to stunning backdrops, let us transform your event into a memorable experience that impresses clients and colleagues alike.",
   },
   {
-    src: wedding03,
-    alt: "wedding 03",
-  }
-]
-
-
+    id: "birthdays",
+    title: "Birthdays",
+    mainImage: birthday01,
+    additionalImages: [birthday02, birthday03],
+    description:
+      "Birthdays &mdash; Make every birthday unforgettable with our vibrant and creative decoration services. We specialize in designing personalized themes that reflect the birthday person's personality and style. From whimsical balloons to elegant table setups, let us create a magical atmosphere that brings joy and excitement to your celebration!",
+  },
+  {
+    id: "special",
+    title: "Special Events",
+    mainImage: special01,
+    additionalImages: [special02, special03],
+    description:
+      "Special Events &mdash; Celebrate life's special moments with our tailored decoration services for any occasion. Whether it's anniversaries, graduations, or family reunions, we bring creativity and elegance to every event. Let us help you create a stunning backdrop that enhances your celebration and leaves a lasting impression on your guests!",
+  },
+];
 ---
 
 <div id="gallery" class="row g-4">
-  <!-- <div
-    class="col-12 pswp-gallery__item"
-    data-pswp-src={birthday01}
-    data-pswp-width="1200"
-    data-pswp-height="800"
-  >
-    <div class="portfolio-iteam">
-      <a
-        href={birthday01}
-        data-pswp-width="1669"
-        data-pswp-height="2500"
-        target="_blank"
-        class="btn btn-primary btn-lg">View Gallery</a
+  {
+    galleryCategories.map((category) => (
+      <div
+        class="col-md-3 pswp-gallery__item"
+        data-pswp-src={category.mainImage.src}
+        data-pswp-width={category.mainImage.width}
+        data-pswp-height={category.mainImage.height}
       >
-    </div>
-  </div> -->
-  <div
-    class="col-md-3 pswp-gallery__item"
-    data-pswp-src={wedding01.src}
-    data-pswp-width={wedding01.width}
-    data-pswp-height={wedding01.height}}
-  >
-    <div class="portfolio-item">
-      <a
-        href={wedding01.src}
-        data-pswp-width={wedding01.width}
-        data-pswp-height={wedding01.height}}
-        target="_blank"
-      >
-        <Image src={wedding01} alt="Weddings & ROMs &mdash;Transforming your dream wedding into a breathtaking reality, our decoration services blend elegance and creativity to create unforgettable moments. Let us bring your vision to life with stunning floral arrangements, exquisite table settings, and enchanting ambiance that reflect your unique love story." class="img-fluid" />
-        <h4>Weddings</h4>
-      </a>
-    </div>
+        <div class="portfolio-item">
+          <a
+            href={category.mainImage.src}
+            data-pswp-width={category.mainImage.width}
+            data-pswp-height={category.mainImage.height}
+            target="_blank"
+          >
+            <Image
+              src={category.mainImage}
+              alt={category.description}
+              class="img-fluid"
+            />
+            <h4>{category.title}</h4>
+          </a>
+        </div>
 
-    <!-- without thumbnail -->
-    <div class="pswp-gallery__item">
-      <a
-        data-pswp-src={wedding02.src}
-        data-pswp-width={wedding02.width}
-        data-pswp-height={wedding02.height}}
-        target="_blank">
-        
-      </a>
-    </div>
-    <div class="pswp-gallery__item">
-      <a
-        data-pswp-src={wedding03.src}
-        data-pswp-width={wedding03.width}
-        data-pswp-height={wedding03.height}}
-        target="_blank"></a>
-    </div>
-  </div>
-
-  <div
-    class="col-md-3 pswp-gallery__item"
-    data-pswp-src={event01.src}
-    data-pswp-width={event01.width}
-    data-pswp-height={event01.height}
-  >
-    <div class="portfolio-item">
-      <a
-        href={event01.src}
-        data-pswp-width={event01.width}
-        data-pswp-height={event01.height}
-        target="_blank"
-      >
-        <Image src={event01} alt="Corporate Events &mdash; Elevate your corporate events with our bespoke decoration services. We specialize in creating professional and sophisticated atmospheres that reflect your brand's identity. From elegant table settings to stunning backdrops, let us transform your event into a memorable experience that impresses clients and colleagues alike." class="img-fluid" />
-        <h4>Corporate Events</h4>
-      </a>
-    </div>
-
-    <!-- without thumbnail -->
-    <div class="pswp-gallery__item">
-      <a
-        data-pswp-src={event02.src}
-        data-pswp-width={event02.width}
-        data-pswp-height={event02.height}
-        target="_blank"></a>
-    </div>
-    <div class="pswp-gallery__item">
-      <a
-        data-pswp-src={event03.src}
-        data-pswp-width={event03.width}
-        data-pswp-height={event03.height}
-        target="_blank"></a>
-    </div>
-  </div>
-
-
-
-  <div
-    class="col-md-3 pswp-gallery__item"
-    data-pswp-src={birthday01.src}
-    data-pswp-width={birthday01.width}
-    data-pswp-height={birthday01.height}
-  >
-    <div class="portfolio-item">
-      <a
-        href={birthday01.src}
-        data-pswp-width={birthday01.width}
-        data-pswp-height={birthday01.height}
-        target="_blank"
-      >
-        <Image src={birthday01} alt="Birthdays &mdash; Make every birthday unforgettable with our vibrant and creative decoration services. We specialize in designing personalized themes that reflect the birthday person's personality and style. From whimsical balloons to elegant table setups, let us create a magical atmosphere that brings joy and excitement to your celebration!" class="img-fluid" />
-        <h4>Birthdays</h4>
-      </a>
-    </div>
-
-    <!-- without thumbnail -->
-    <div class="pswp-gallery__item">
-      <a
-        data-pswp-src={birthday02.src}
-        data-pswp-width={birthday02.width}
-        data-pswp-height={birthday02.height}
-        target="_blank"></a>
-    </div>
-    <div class="pswp-gallery__item">
-      <a
-        data-pswp-src={birthday03.src}
-        data-pswp-width={birthday03.width}
-        data-pswp-height={birthday03.height}
-        target="_blank"></a>
-    </div>
-  </div>
-
-
-
-  <div
-    class="col-md-3 pswp-gallery__item"
-    data-pswp-src={special01.src}
-    data-pswp-width={special01.width}
-    data-pswp-height={special01.height}
-  >
-    <div class="portfolio-item">
-      <a
-        href={special01.src}
-        data-pswp-width={special01.width}
-        data-pswp-height={special01.height}
-        target="_blank"
-      >
-        <Image src={special01} alt="Special Events &mdash; Celebrate life's special moments with our tailored decoration services for any occasion. Whether it's anniversaries, graduations, or family reunions, we bring creativity and elegance to every event. Let us help you create a stunning backdrop that enhances your celebration and leaves a lasting impression on your guests!" class="img-fluid" />
-        <h4>Specials Events</h4>
-      </a>
-    </div>
-
-    <!-- without thumbnail -->
-    <div class="pswp-gallery__item">
-      <a
-        data-pswp-src={special02.src}
-        data-pswp-width={special02.width}
-        data-pswp-height={special02.height}
-        target="_blank"></a>
-    </div>
-    <div class="pswp-gallery__item">
-      <a
-        data-pswp-src={special03.src}
-        data-pswp-width={special03.width}
-        data-pswp-height={special03.height}
-        target="_blank"></a>
-    </div>
-  </div>
-
-
-
-  <style>
-    .portfolio-item {
-      position: relative;
-      overflow: hidden;
-      margin: 0;
-      border-radius: 1rem;
-
-      & img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        transition: all 0.3s ease;
-        transform: scale(1);
-      }
-      & h4 {
-        color: #fff;
-        z-index: 50;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding-block: 1rem;
-        margin: 0;
-      }
-
-      &:hover,
-      &:focus {
-        & img {
-          transform: scale(1.1);
-        }
-      }
-    }
-    .portfolio-item:before {
-      content: " ";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0),
-        80%,
-        rgba(199, 151, 135, 0.8) 92.5%,
-        #c79787 100%
-      );
-      /* background: red; */
-      z-index: 45;
-      opacity: 1;
-    }
-
-    @media (min-width: 768px) {
-      #gallery > .pswp-gallery__item:nth-child(even) {
-        margin-top: 6rem;
-      }
-    }
-
-    .portfolio-item {
-      aspect-ratio: 4/3;
-
-      @media (min-width: 768px) {
-        aspect-ratio: 3/4;
-      }
-    }
-  </style>
-
-
-<script is:inline type="module">
-  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
-  import PhotoSwipeDynamicCaption from 'https://unpkg.com/photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.esm.js';
-  import PhotoSwipe from 'https://unpkg.com/photoswipe/dist/photoswipe.esm.js';
-
-  const lightbox = new PhotoSwipeLightbox({
-    gallery: '#gallery',
-    children: '.pswp-gallery__item',
-    pswpModule: () => import('https://unpkg.com/photoswipe/dist/photoswipe.esm.js'),
-    paddingFn: (viewportSize) => ({
-      top: 30,
-      bottom: 30,
-      left: 70,
-      right: 70,
-    }),
-  });
-
-  new PhotoSwipeDynamicCaption(lightbox, {
-    type: "auto",
-    captionContent: ".pswp-caption-content",
-    mobileLayoutBreakpoint: 768,
-  });
-
-  lightbox.init();
-</script>
+        {/* Hidden additional images for gallery */}
+        {category.additionalImages.map((image) => (
+          <div class="pswp-gallery__item">
+            <a
+              data-pswp-src={image.src}
+              data-pswp-width={image.width}
+              data-pswp-height={image.height}
+              target="_blank"
+            />
+          </div>
+        ))}
+      </div>
+    ))
+  }
+</div>
 
 <style>
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    border-radius: 1rem;
+    aspect-ratio: 4/3;
+
+    & img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      transition: all 0.3s ease;
+      transform: scale(1);
+    }
+
+    & h4 {
+      color: #fff;
+      z-index: 50;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding-block: 1rem;
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    &:hover,
+    &:focus {
+      & img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .portfolio-item:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0),
+      80%,
+      rgba(199, 151, 135, 0.8) 92.5%,
+      #c79787 100%
+    );
+    z-index: 45;
+    opacity: 1;
+  }
+
+  @media (min-width: 768px) {
+    #gallery > .pswp-gallery__item:nth-child(even) {
+      margin-top: 6rem;
+    }
+
+    .portfolio-item {
+      aspect-ratio: 3/4;
+    }
+  }
+
   .pswp-caption-content {
     text-align: center;
     font-size: 1.1rem;
     padding: 15px;
   }
-
-  h4 {
-    font-size: 2rem;
-    font-weight: 400;
-  }
 </style>
+
+<script>
+  // Use dynamic imports for better compatibility with build systems
+  const loadPhotoswipe = async () => {
+    try {
+      const PhotoSwipeLightbox = (
+        await import("photoswipe/dist/photoswipe-lightbox.esm.js")
+      ).default;
+
+      const PhotoSwipeDynamicCaption = (
+        await import("photoswipe-dynamic-caption-plugin")
+      ).default;
+
+      const lightbox = new PhotoSwipeLightbox({
+        gallery: "#gallery",
+        children: ".pswp-gallery__item",
+        pswpModule: () => import("photoswipe/dist/photoswipe.esm.js"),
+      });
+
+      const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
+        type: "auto",
+      });
+
+      lightbox.init();
+    } catch (error) {
+      console.error("Failed to initialize PhotoSwipe:", error);
+    }
+  };
+
+  // Initialize when the DOM is ready
+  document.addEventListener("DOMContentLoaded", loadPhotoswipe);
+</script>

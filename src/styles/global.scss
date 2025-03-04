@@ -1,0 +1,260 @@
+// Bootstrap 5.3.3 and Icons
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+// Variables
+:root {
+  // Colors
+  --primary-color: #c79787;
+  --secondary-color: #f8d7d9;
+  --text-color: #333333;
+  --background-color: #fff5f6;
+  --beige: #fbe8e1;
+  --beige-light: #fbf1ee;
+  --offwhite: #fbf7f6;
+
+  --gold: #f0bdac;
+
+  // Bootstrap overrides
+  --bs-body-font-family: "Crimson Text", serif;
+  --bs-nav-link-font-size: 1.45rem;
+}
+
+.bg--beige {
+  background: var(--beige);
+}
+.bg--beigelight {
+  background: var(--beige-light);
+}
+
+// Base styles
+html {
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--offwhite);
+}
+
+// Typography
+%heading-base {
+  font-family: "Crimson Text", serif;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.05;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5 {
+  @extend %heading-base;
+}
+
+// Font utility classes
+@mixin crimson-text($weight: 400, $style: normal) {
+  font-family: "Crimson Text", serif;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+.crimson-text {
+  &-regular {
+    @include crimson-text(400);
+  }
+  &-semibold {
+    @include crimson-text(600);
+  }
+  &-bold {
+    @include crimson-text(700);
+  }
+  &-regular-italic {
+    @include crimson-text(400, italic);
+  }
+  &-semibold-italic {
+    @include crimson-text(600, italic);
+  }
+  &-bold-italic {
+    @include crimson-text(700, italic);
+  }
+}
+
+p {
+  font-family: "Roboto", serif;
+}
+.font--crimson {
+  font-family: "Crimson Text", serif;
+}
+
+// Buttons
+.btn {
+  --bs-btn-font-family: "Roboto", sans-serif;
+
+  &-primary {
+    --bs-btn-bg: var(--primary-color);
+    --bs-btn-border-color: var(--primary-color);
+    --bs-btn-hover-bg: #a87777;
+    --bs-btn-hover-border-color: #a87777;
+  }
+
+  &-lg {
+    --bs-btn-padding-y: 0.8rem;
+  }
+}
+
+// Navigation
+.navbar {
+  padding: 1rem 0;
+}
+
+.nav-link {
+  color: var(--text-color);
+  font-weight: 500;
+  margin: 0 1rem;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+// Section styles
+.curved {
+  position: relative;
+  padding-block: 2rem;
+  height: 80%;
+  background: var(--bg-color);
+  border-bottom-left-radius: 50% 60%;
+  border-bottom-right-radius: 50% 60%;
+
+  &--flip {
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+    border-top-left-radius: 50% 60%;
+    border-top-right-radius: 50% 60%;
+  }
+}
+
+// Background utilities
+.bg {
+  &--gradient {
+    background: linear-gradient(299.63deg, var(--beige) 25.72%, #fbf7f6 100%);
+  }
+
+  &--gradient-flip {
+    background: linear-gradient(77.77deg, #fbf7f6 54.8%, #fbe7e0 97.1%);
+  }
+
+  &-offwhite {
+    background-color: var(--offwhite);
+  }
+}
+
+// Hero section
+.hero {
+  &-section {
+    background-image: url("/bg-texture.svg");
+    background-repeat: no-repeat;
+    background-position: left top, right bottom;
+  }
+
+  &-image-container {
+    overflow: hidden;
+  }
+
+  &image__rounded {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  &-foreground {
+    bottom: -3rem;
+    right: -1rem;
+  }
+}
+
+// Portfolio section
+.portfolio-item {
+  img {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+// Services section
+.service-card {
+  transition: transform 0.3s ease;
+  height: 100%;
+
+  p {
+    font-size: 1.05rem;
+    color: #555;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+// CTA Banner
+.jumbo-cta {
+  margin-top: -8rem;
+  position: relative;
+}
+
+// Image composition
+.image-composition {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin: 3rem auto;
+
+  %image-common {
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .image-main {
+    @extend %image-common;
+    border-radius: 3rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+    img {
+      height: auto;
+    }
+  }
+
+  .image-overlay {
+    @extend %image-common;
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 180px;
+    height: 180px;
+    border-radius: 3rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border: 6px solid white;
+  }
+}

@@ -65,3 +65,8 @@ All commands are run from the root of the project, from a terminal:
 - **Created GitHub Actions Workflow**: Added `.github/workflows/deploy.yml` to automate deployment.
 - **Initialized Git Repository**: Set up a new git repository and pushed the initial commit.
 - **Updated GitHub Actions**: Modified the workflow to use the latest versions of actions for building and deploying the site.
+
+
+- [250304]
+    - domainname - [loveartdesignstudio.com](https://www.namecheap.com/domains/registration/results/?domain=loveartdesignstudio) - estimate $11.28/yr (Retail $14.98/yr)
+    - 

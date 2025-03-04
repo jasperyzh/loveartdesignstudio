@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .text { font-family: 'Playfair Display', serif; fill: #333333; }
-    .highlight { fill: #F5A7B6; }
-  </style>
-  <text x="10" y="35" class="text" font-size="30">Love Art</text>
-  <text x="120" y="35" class="text highlight" font-size="30">Design</text>
-</svg>

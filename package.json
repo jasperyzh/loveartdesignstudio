@@ -3,18 +3,20 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "NODE_ENV=development astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/tailwind": "^6.0.0",
     "@popperjs/core": "^2.11.8",
     "astro": "^5.4.1",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "photoswipe": "^5.4.4",
     "photoswipe-dynamic-caption-plugin": "^1.2.7",
-    "sass": "^1.85.0"
+    "sass": "^1.85.0",
+    "tailwindcss": "^4.0.9"
   }
 }
