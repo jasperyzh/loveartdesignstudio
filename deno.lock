@@ -8,8 +8,7 @@
     "npm:bootstrap@^5.3.3": "5.3.3_@popperjs+core@2.11.8",
     "npm:photoswipe-dynamic-caption-plugin@^1.2.7": "1.2.7",
     "npm:photoswipe@^5.4.4": "5.4.4",
-    "npm:sass@^1.85.0": "1.85.1",
-    "npm:tailwindcss@^4.0.9": "4.0.9"
+    "npm:sass@^1.85.0": "1.85.1"
   },
   "npm": {
     "@alloc/quick-lru@5.2.0": {
@@ -60,7 +59,7 @@
         "autoprefixer",
         "postcss",
         "postcss-load-config",
-        "tailwindcss@3.4.17_postcss@8.5.3"
+        "tailwindcss"
       ]
     },
     "@astrojs/telemetry@3.2.0": {
@@ -2320,9 +2319,6 @@
         "sucrase"
       ]
     },
-    "tailwindcss@4.0.9": {
-      "integrity": "sha512-12laZu+fv1ONDRoNR9ipTOpUD7RN9essRVkX36sjxuRUInpN7hIiHN4lBd/SIFjbISvnXzp8h/hXzmU8SQQYhw=="
-    },
     "thenify-all@1.6.0": {
       "integrity": "sha512-RNxQH/qI8/t3thXJDwcstUO4zeqo64+Uy/+sNVRBx4Xn2OX+OZ9oP+iJnNFqplFra2ZUVeKCSa2oVWi3T4uVmA==",
       "dependencies": [
@@ -2614,7 +2610,7 @@
         "npm:photoswipe-dynamic-caption-plugin@^1.2.7",
         "npm:photoswipe@^5.4.4",
         "npm:sass@^1.85.0",
-        "npm:tailwindcss@^4.0.9"
+        "npm:tailwindcss@^3.4.1"
       ]
     }
   }

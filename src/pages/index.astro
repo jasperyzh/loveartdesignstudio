@@ -66,10 +66,10 @@ const whatsapp_href = import.meta.env.WHATSAPP_URL;
       <div class="container pb-0 pb-md-5 py-5 text-center text-lg-start">
         <div class="row align-items-center">
           <div class="col-lg-6 mb-4 mb-lg-0">
-            <h1 class="display-4 mb-4">
+            <h1 class="display-4 mb-4 fade-up">
               Celebrating Life's<br />Special Moments in Style
             </h1>
-            <p class="lead mb-4">
+            <p class="lead mb-4 fade-up fade-up-delay-1">
               We are Creative Event Decorators, specializing in decor for
               weddings, birthdays and corporate events that inspire lasting
               memories!
@@ -77,7 +77,7 @@ const whatsapp_href = import.meta.env.WHATSAPP_URL;
             <a
               href={whatsapp_href}
               target="_blank"
-              class="btn btn-primary btn-lg"
+              class="btn btn-primary btn-lg fade-up fade-up-delay-2"
             >
               WhatsApp Us <i class="bi bi-whatsapp mx-1"></i>
             </a>
@@ -85,7 +85,7 @@ const whatsapp_href = import.meta.env.WHATSAPP_URL;
           <div
             class="col-lg-6 position-relative d-flex justify-content-center px-0 px-md-3"
           >
-            <figure class="my-4 hero-image-container">
+            <figure class="my-4 hero-image-container fade-up fade-up-delay-1">
               <img
                 src={heroImage.src}
                 alt="Event Decoration"
@@ -108,8 +108,8 @@ const whatsapp_href = import.meta.env.WHATSAPP_URL;
     <section id="portfolio" class="portfolio-section bg--gradient-flip">
       <div class="curved" style="background: var(--offwhite)"></div>
       <div class="container py-5 text-center">
-        <h2 class="display-4">Our Portfolio</h2>
-        <p class="lead mb-4 col-md-6 mx-auto">
+        <h2 class="display-4 fade-up">Our Portfolio</h2>
+        <p class="lead mb-4 col-md-6 mx-auto fade-up fade-up-delay-1">
           Explore our diverse range of creative projects that showcase our
           expertise in event decoration. From weddings to corporate events, we
           bring visions to life with elegance and style.
@@ -122,12 +122,12 @@ const whatsapp_href = import.meta.env.WHATSAPP_URL;
     <!-- Services Section -->
     <section id="services" class="bg--beige">
       <div class="container py-5">
-        <h2 class="display-4 text-center mb-4">Our Services</h2>
+        <h2 class="display-4 text-center mb-4 fade-up">Our Services</h2>
         <div class="row g-4">
           {
             services.map((service) => (
               <div class="col-md-4">
-                <div class="service-card p-4 bg-offwhite rounded shadow-sm">
+                <div class="service-card p-4 bg-offwhite rounded shadow-sm fade-up">
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                 </div>
@@ -144,7 +144,7 @@ const whatsapp_href = import.meta.env.WHATSAPP_URL;
     <section class="faq-section bg--gradient">
       <!-- CTA Banner -->
       <div class="jumbo-cta container py-4">
-        <div class="px-5 py-4 mb-4 rounded-5 shadow bg--beigelight">
+        <div class="px-5 py-4 mb-4 rounded-5 shadow bg--beigelight fade-up">
           <div class="container-fluid py-2">
             <div class="row">
               <div class="col-md-8">
@@ -184,7 +184,7 @@ const whatsapp_href = import.meta.env.WHATSAPP_URL;
           <div
             class="col-md-6 d-flex justify-content-center align-items-center"
           >
-            <div class="image-composition">
+            <div class="image-composition fade-up">
               <div class="image-main">
                 <img
                   src={overlay2.src}
@@ -198,7 +198,7 @@ const whatsapp_href = import.meta.env.WHATSAPP_URL;
             </div>
           </div>
           <div class="col-md-6">
-            <h2 class="section-title display-5 mb-3">
+            <h2 class="section-title display-5 mb-3 fade-up">
               Frequently Asked Questions
             </h2>
             <p class="lead col-md-11 mb-4">
