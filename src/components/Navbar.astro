@@ -6,12 +6,13 @@ const { whatsapp_href } = Astro.props;
 ---
 
 <nav class="navbar navbar-expand-xl bg-transparent">
-  <div class="container">
+  <div class="container navbar-container">
     <a class="navbar-brand" href="/">
       <Image
         src={logo}
         alt="Love Art Design"
         height="120"
+        class="logo-image"
         style="mix-blend-mode: multiply"
       />
     </a>
@@ -47,8 +48,88 @@ const { whatsapp_href } = Astro.props;
   </div>
 </nav>
 <style>
+  .navbar-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-collapse {
+    flex-basis: auto;
+  }
+
+  @media (max-width: 1199.98px) {
+    .navbar-collapse {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      left: 0;
+      background-color: white;
+      padding: 1rem;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
   .nav-item {
     display: flex;
     align-items: center;
+  }
+
+  /* CSS Custom Properties (variables) for responsive design */
+  :root {
+    --logo-max-size: 120px;
+    --logo-min-size: 60px;
+    --viewport-min: 320px;
+    --viewport-max: 1200px;
+  }
+
+  .logo-image {
+    /* Method 1: Using clamp() for fluid sizing */
+    height: clamp(var(--logo-min-size), 8vw + 30px, var(--logo-max-size));
+    width: auto;
+
+    /* Alternative Method 2: Using calc() with viewport width */
+    /* height: calc(60px + (120 - 60) * ((100vw - 320px) / (1200 - 320))); */
+
+    /* Method 3: Using min() and max() together */
+    /* height: min(max(60px, 8vw + 30px), 120px); */
+
+    /* Smooth transition for any size changes */
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    /* Preserve aspect ratio */
+    object-fit: contain;
+  }
+
+  /* Additional responsive adjustments using CSS Grid minmax() */
+  .navbar-container {
+    display: grid;
+    grid-template-columns: minmax(auto, max-content) 1fr minmax(
+        auto,
+        max-content
+      );
+    grid-template-areas: "logo . toggle";
+  }
+
+  .navbar-brand {
+    grid-area: logo;
+  }
+
+  .navbar-toggler {
+    grid-area: toggle;
+    margin-left: auto;
+  }
+
+  /* Responsive adjustments for very small screens */
+  @media (max-width: 400px) {
+    :root {
+      --logo-min-size: 50px; /* Even smaller on tiny screens */
+    }
+
+    /* Reduce padding on small screens */
+    .navbar-brand {
+      padding: 0.25rem;
+    }
   }
 </style>

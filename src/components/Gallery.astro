@@ -4,51 +4,93 @@ import "photoswipe/style.css";
 import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
 import { Image } from "astro:assets";
 
-// Import image assets
-import wedding01 from "../assets/portfolio/wedding01.jpg";
-import wedding02 from "../assets/portfolio/wedding02.jpg";
-import wedding03 from "../assets/portfolio/wedding03.jpg";
-import event01 from "../assets/portfolio/event01.jpg";
-import event02 from "../assets/portfolio/event02.jpg";
-import event03 from "../assets/portfolio/event03.jpg";
-import birthday01 from "../assets/portfolio/birthday01.jpg";
-import birthday02 from "../assets/portfolio/birthday02.jpg";
-import birthday03 from "../assets/portfolio/birthday03.jpg";
-import special01 from "../assets/portfolio/special01.jpg";
-import special02 from "../assets/portfolio/special02.jpg";
-import special03 from "../assets/portfolio/special03.jpg";
+// Batch import all images using import.meta.glob
+// Original portfolio images
+const weddingImages = import.meta.glob("../assets/portfolio/wedding*.jpg", {
+  import: "default",
+  eager: true,
+});
+const eventImages = import.meta.glob("../assets/portfolio/event*.jpg", {
+  import: "default",
+  eager: true,
+});
+const birthdayImages = import.meta.glob("../assets/portfolio/birthday*.jpg", {
+  import: "default",
+  eager: true,
+});
+const specialImages = import.meta.glob("../assets/portfolio/special*.jpg", {
+  import: "default",
+  eager: true,
+});
+
+// New Instagram images - import all images from picked folders
+const weddingInstagramImages = import.meta.glob(
+  "../assets/loveartdesign-instagram/wedding/picked/*.jpg",
+  { import: "default", eager: true }
+);
+const corporateInstagramImages = import.meta.glob(
+  "../assets/loveartdesign-instagram/corporate/picked/*.jpg",
+  { import: "default", eager: true }
+);
+const birthdayInstagramImages = import.meta.glob(
+  "../assets/loveartdesign-instagram/birthday/picked/*.jpg",
+  { import: "default", eager: true }
+);
+const specialInstagramImages = import.meta.glob(
+  "../assets/loveartdesign-instagram/special/picked/*.jpg",
+  { import: "default", eager: true }
+);
+
+// Convert the imported objects to arrays
+const originalWeddingImagesArray = Object.values(weddingImages);
+const originalEventImagesArray = Object.values(eventImages);
+const originalBirthdayImagesArray = Object.values(birthdayImages);
+const originalSpecialImagesArray = Object.values(specialImages);
+
+const weddingInstagramImagesArray = Object.values(weddingInstagramImages);
+const corporateInstagramImagesArray = Object.values(corporateInstagramImages);
+const birthdayInstagramImagesArray = Object.values(birthdayInstagramImages);
+const specialInstagramImagesArray = Object.values(specialInstagramImages);
 
 // Define gallery categories with their images and descriptions
 const galleryCategories = [
   {
     id: "weddings",
     title: "Weddings",
-    mainImage: wedding01,
-    additionalImages: [wedding02, wedding03],
+    mainImage: weddingInstagramImagesArray[1],
+    additionalImages: [
+      ...weddingInstagramImagesArray.filter((_, index) => index !== 1),
+    ],
     description:
       "Weddings & ROMs &mdash;Transforming your dream wedding into a breathtaking reality, our decoration services blend elegance and creativity to create unforgettable moments. Let us bring your vision to life with stunning floral arrangements, exquisite table settings, and enchanting ambiance that reflect your unique love story.",
   },
   {
     id: "corporate",
     title: "Corporate Events",
-    mainImage: event01,
-    additionalImages: [event02, event03],
+    mainImage: corporateInstagramImagesArray[3],
+    additionalImages: [
+      ...corporateInstagramImagesArray.filter((_, index) => index !== 3),
+    ],
     description:
       "Corporate Events &mdash; Elevate your corporate events with our bespoke decoration services. We specialize in creating professional and sophisticated atmospheres that reflect your brand's identity. From elegant table settings to stunning backdrops, let us transform your event into a memorable experience that impresses clients and colleagues alike.",
   },
   {
     id: "birthdays",
     title: "Birthdays",
-    mainImage: birthday01,
-    additionalImages: [birthday02, birthday03],
+    mainImage: birthdayInstagramImagesArray[5],
+    additionalImages: [
+      ...birthdayInstagramImagesArray.filter((_, index) => index !== 5),
+    ],
     description:
       "Birthdays &mdash; Make every birthday unforgettable with our vibrant and creative decoration services. We specialize in designing personalized themes that reflect the birthday person's personality and style. From whimsical balloons to elegant table setups, let us create a magical atmosphere that brings joy and excitement to your celebration!",
   },
   {
     id: "special",
     title: "Special Events",
-    mainImage: special01,
-    additionalImages: [special02, special03],
+    mainImage: specialInstagramImagesArray[1],
+    additionalImages: [
+      ...specialInstagramImagesArray.filter((_, index) => index !== 1),
+    ],
     description:
       "Special Events &mdash; Celebrate life's special moments with our tailored decoration services for any occasion. Whether it's anniversaries, graduations, or family reunions, we bring creativity and elegance to every event. Let us help you create a stunning backdrop that enhances your celebration and leaves a lasting impression on your guests!",
   },
@@ -59,7 +101,7 @@ const galleryCategories = [
   {
     galleryCategories.map((category) => (
       <div
-        class="col-md-3 pswp-gallery__item"
+        class="col-sm-6 col-lg-3 pswp-gallery__item"
         data-pswp-src={category.mainImage.src}
         data-pswp-width={category.mainImage.width}
         data-pswp-height={category.mainImage.height}
@@ -173,9 +215,7 @@ const galleryCategories = [
   // Use dynamic imports for better compatibility with build systems
   const loadPhotoswipe = async () => {
     try {
-      const PhotoSwipeLightbox = (
-        await import("photoswipe/lightbox")
-      ).default;
+      const PhotoSwipeLightbox = (await import("photoswipe/lightbox")).default;
 
       const PhotoSwipeDynamicCaption = (
         await import("photoswipe-dynamic-caption-plugin")
@@ -184,7 +224,7 @@ const galleryCategories = [
       const lightbox = new PhotoSwipeLightbox({
         gallery: "#gallery",
         children: ".pswp-gallery__item",
-        pswpModule: () => import("photoswipe")
+        pswpModule: () => import("photoswipe"),
       });
 
       const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
