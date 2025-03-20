@@ -55,6 +55,7 @@ const services = [
   },
 ];
 
+
 const whatsapp_href = import.meta.env.WHATSAPP_URL;
 ---
 
@@ -65,7 +66,7 @@ const whatsapp_href = import.meta.env.WHATSAPP_URL;
     <section class="hero-section" style="overflow: hidden">
       <div class="container pb-0 pb-md-5 py-5 text-center text-lg-start">
         <div class="row align-items-center">
-          <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="col-lg-6 mb-2 mb-lg-0">
             <h1 class="display-4 mb-4 fade-up">
               Celebrating Life's<br />Special Moments in Style
             </h1>
@@ -85,13 +86,20 @@ const whatsapp_href = import.meta.env.WHATSAPP_URL;
           <div
             class="col-lg-6 position-relative d-flex justify-content-center px-0 px-md-3"
           >
-            <figure class="my-4 hero-image-container fade-up fade-up-delay-1">
+            <figure class="my-4 fade-up fade-up-delay-1">
               <img
                 src={heroImage.src}
                 alt="Event Decoration"
-                class="img-fluid heroimage__rounded rounded-4"
+                class="img-fluid heroimage__rounded "
                 width="550"
               />
+              <style>
+                @media screen and (min-width: 768px) {
+                  .heroimage__rounded {
+                    border-radius: 1rem;
+                  }
+                }
+              </style>
               <Image
                 src={heroForegroundDecor}
                 alt="Foreground Decoration"
