@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 
 // Batch import all images using import.meta.glob
 // Original portfolio images
-const weddingImages = import.meta.glob("../assets/portfolio/wedding*.jpg", {
+/* const weddingImages = import.meta.glob("../assets/portfolio/wedding*.jpg", {
   import: "default",
   eager: true,
 });
@@ -21,31 +21,31 @@ const birthdayImages = import.meta.glob("../assets/portfolio/birthday*.jpg", {
 const specialImages = import.meta.glob("../assets/portfolio/special*.jpg", {
   import: "default",
   eager: true,
-});
+}); */
 
 // New Instagram images - import all images from picked folders
 const weddingInstagramImages = import.meta.glob(
-  "../assets/loveartdesign-instagram/wedding/picked/*.jpg",
+  "../assets/loveartdesign-instagram/wedding/picked/*.{jpg,jpeg}",
   { import: "default", eager: true }
 );
 const corporateInstagramImages = import.meta.glob(
-  "../assets/loveartdesign-instagram/corporate/picked/*.jpg",
+  "../assets/loveartdesign-instagram/corporate/picked/*.{jpg,jpeg}",
   { import: "default", eager: true }
 );
 const birthdayInstagramImages = import.meta.glob(
-  "../assets/loveartdesign-instagram/birthday/picked/*.jpg",
+  "../assets/loveartdesign-instagram/birthday/picked/*.{jpg,jpeg}",
   { import: "default", eager: true }
 );
 const specialInstagramImages = import.meta.glob(
-  "../assets/loveartdesign-instagram/special/picked/*.jpg",
+  "../assets/loveartdesign-instagram/special/picked/*.{jpg,jpeg}",
   { import: "default", eager: true }
 );
 
 // Convert the imported objects to arrays
-const originalWeddingImagesArray = Object.values(weddingImages);
+/* const originalWeddingImagesArray = Object.values(weddingImages);
 const originalEventImagesArray = Object.values(eventImages);
 const originalBirthdayImagesArray = Object.values(birthdayImages);
-const originalSpecialImagesArray = Object.values(specialImages);
+const originalSpecialImagesArray = Object.values(specialImages); */
 
 const weddingInstagramImagesArray = Object.values(weddingInstagramImages);
 const corporateInstagramImagesArray = Object.values(corporateInstagramImages);
@@ -57,9 +57,9 @@ const galleryCategories = [
   {
     id: "weddings",
     title: "Weddings",
-    mainImage: weddingInstagramImagesArray[1],
+    mainImage: weddingInstagramImagesArray[2],
     additionalImages: [
-      ...weddingInstagramImagesArray.filter((_, index) => index !== 1),
+      ...weddingInstagramImagesArray.filter((_, index) => index !== 2),
     ],
     description:
       "Weddings & ROMs &mdash;Transforming your dream wedding into a breathtaking reality, our decoration services blend elegance and creativity to create unforgettable moments. Let us bring your vision to life with stunning floral arrangements, exquisite table settings, and enchanting ambiance that reflect your unique love story.",
@@ -77,9 +77,9 @@ const galleryCategories = [
   {
     id: "birthdays",
     title: "Birthdays",
-    mainImage: birthdayInstagramImagesArray[5],
+    mainImage: birthdayInstagramImagesArray[2],
     additionalImages: [
-      ...birthdayInstagramImagesArray.filter((_, index) => index !== 5),
+      ...birthdayInstagramImagesArray.filter((_, index) => index !== 2),
     ],
     description:
       "Birthdays &mdash; Make every birthday unforgettable with our vibrant and creative decoration services. We specialize in designing personalized themes that reflect the birthday person's personality and style. From whimsical balloons to elegant table setups, let us create a magical atmosphere that brings joy and excitement to your celebration!",
