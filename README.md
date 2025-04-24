@@ -1,3 +1,4 @@
+-> [[241223-freelance - LoveArtDesign Website]]
 # Love Art Design - Event Decoration Website
 
 A modern and elegant website for an event decoration business built with Astro.js and Bootstrap 5.
