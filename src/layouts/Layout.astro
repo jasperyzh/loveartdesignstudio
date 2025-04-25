@@ -30,31 +30,48 @@ const {
       href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-188BN68Q3S"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-188BN68Q3S");
+    </script>
   </head>
   <body>
     <slot />
     <script>
       import "bootstrap/dist/js/bootstrap.js";
-      
+
       // Fade-up animation observer
-      document.addEventListener('DOMContentLoaded', () => {
-        const fadeUpElements = document.querySelectorAll('.fade-up');
-        
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              // Once the animation is complete, we can stop observing the element
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          root: null, // viewport
-          threshold: 0.1, // trigger when 10% of the element is visible
-          rootMargin: '0px 0px -50px 0px' // slightly before elements enter viewport
-        });
-        
-        fadeUpElements.forEach(element => {
+      document.addEventListener("DOMContentLoaded", () => {
+        const fadeUpElements = document.querySelectorAll(".fade-up");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                // Once the animation is complete, we can stop observing the element
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            root: null, // viewport
+            threshold: 0.1, // trigger when 10% of the element is visible
+            rootMargin: "0px 0px -50px 0px", // slightly before elements enter viewport
+          }
+        );
+
+        fadeUpElements.forEach((element) => {
           observer.observe(element);
         });
       });
