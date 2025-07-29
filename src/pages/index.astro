@@ -81,6 +81,7 @@ const whatsapp_href = import.meta.env.WHATSAPP_URL;
               href={whatsapp_href}
               target="_blank"
               class="btn btn-primary btn-lg fade-up fade-up-delay-2"
+              onclick="window.trackWhatsAppConversion && window.trackWhatsAppConversion()"
             >
               WhatsApp Us <i class="bi bi-whatsapp mx-1"></i>
             </a>
@@ -182,6 +183,7 @@ const whatsapp_href = import.meta.env.WHATSAPP_URL;
                   class="btn btn-primary btn-lg"
                   href={whatsapp_href}
                   target="_blank"
+                  onclick="window.trackWhatsAppConversion && window.trackWhatsAppConversion()"
                 >
                   WhatsApp Us <img
                     src={iconWhatsapp.src}

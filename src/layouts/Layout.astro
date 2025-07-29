@@ -30,11 +30,19 @@ const {
       href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <!-- Google tag (gtag.js) -->
+    
+    <!-- Google Analytics -->
     <script
       is:inline
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-188BN68Q3S"></script>
+    
+    <!-- Google Ads -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17393639882"></script>
+    
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -42,12 +50,24 @@ const {
       }
       gtag("js", new Date());
 
+      // Google Analytics
       gtag("config", "G-188BN68Q3S");
-
+      
+      // Google Ads
       gtag('config', 'AW-17393639882');
+      
+      // Function to track WhatsApp conversion
+      function trackWhatsAppConversion() {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17393639882/Contact',
+          'event_category': 'engagement',
+          'event_label': 'whatsapp_click'
+        });
+      }
+      
+      // Make function globally available
+      window.trackWhatsAppConversion = trackWhatsAppConversion;
     </script>
-
-    <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17393639882"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-17393639882'); </script>
   </head>
   <body>
     <slot />
